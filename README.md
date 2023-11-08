@@ -1,5 +1,6 @@
-# ES6 Basics
+# My ES6 tutorial
 
+[> my-ES6-tutorial](https://timcharlier6.github.io/my-es6-tutorial.github.io/index1.html)
 ## Description
 
   This project is a simple website to study new features of Javascript ES6.
@@ -10,3 +11,4 @@
 
 ## License
   The examples are taken from w3schools tutorial.
+
