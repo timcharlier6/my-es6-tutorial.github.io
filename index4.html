@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div>
+    <header>
+        <h1>ES6 BASICS</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2></h2>
+            <p style="padding-left:20px;"><i>Spread operator allows to quickly copy all or part of an existing array or object into another array or object.</i></p>
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td class="code">
+                        <code>
+              <pre>
+
+const numbers1 = [1, 2, 3];
+const numbers2 = [4, 5, 6];
+const numbers1and2 = [...numbers1, ...numbers2];
+
+console.log(numbers1and2);
+
+              </pre>
+                        </code>
+                    </td>
+                    <td class="output">
+                        <p id="container1"></p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Destructuring + spread operator</h2>
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td class="code">
+                        <code>
+              <pre>
+const [one, two, ...rest] = numbers1and2;
+
+console.log(one);
+console.log(two);
+console.log(rest);
+              </pre>
+                        </code>
+                    </td>
+                    <td class="output">
+                        <p id="container2"></p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+      <nav>
+        <ul>
+          <li>
+            <a href="./index3.html">Previous Page</a>
+          </li>
+          <li>
+            <a href="./index1.html">Back to First Page</a>
+          </li>
+        </ul>
+      </nav>
+      <p style="text-align: center; font-size: small">&copy; 2023 TC. </p>
+    </footer>
+</div>
+
+<script type="text/babel">
+    // SPREAD OPERATOR
+   const numbers1 = [1, 2, 3];
+   const numbers2 = [4, 5, 6];
+   const numbers1and2 = [...numbers1, ...numbers2];
+   document.getElementById('container1').innerHTML = numbers1and2;
+
+   const [one, two, ...rest] = numbers1and2;
+
+   document.getElementById('container2').innerHTML = one + '<br>' + two + '<br>' + rest;
+    //||RENDER||
+    const container = document.getElementById('react-spread');
+    const root = ReactDOM.createRoot(container);
+    root.render();
+</script>
+
+</body>
+</html>

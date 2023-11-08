@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="mydiv">
+ <header>
+   <h1>ES6 BASICS</h1>
+
+ </header>
+
+  <main>
+
+    <section>
+     <h2>Arrow Functions</h2>
+
+      <p style="padding-left:20px;"><i>Arrow function allows to write shorter function syntax.</i></p>
+     <table>
+       <tr>
+         <th>Code</th>
+         <th>Output</th>
+       </tr>
+       <tr>
+         <td class="code">
+           <code>
+             <pre>
+const hello = val => "Hello " + val;
+console.log(hello("world"));
+             </pre>
+           </code>
+         </td>
+         <td class="output">
+           <p id="arrFunc"></p>
+         </td>
+       </tr>
+     </table>
+      <p style="border: 1px solid green; text-align: justify; padding: 2px 10px;"><strong>Note:</strong><br> The handling of <span style="color:red;">this</span> is also different in arrow functions compared to regular functions.<br> In regular functions the <span style="color:red;">this</span> keyword represents the object that calls the function, which could be the window, the document, a button or whatever.<br>With arrow functions the <span style="color:red;">this</span> keyword always represents the object that defined the arrow function.</p>
+    </section>
+
+    <section>
+
+     <h2>Class</h2>
+
+      <p style="padding-left:20px;"><i>A class is a type of function declared with class that can have properties assigned inside a constructor method.</i></p>
+      <table>
+        <tr>
+          <th>Code</th>
+          <th>Output</th>
+        </tr>
+       <tr>
+         <td class="code">
+           <code>
+           <pre>
+class Car {
+  constructor(name) {
+    this.brand = name;
+  }
+
+  present() {
+    return 'I have a ' + this.brand;
+  }
+}
+
+class Model extends Car {
+  constructor(name, mod) {
+    super(name);
+    this.model = mod;
+  }
+
+  show() {
+    return this.present() + ', it is a ' + this.model;
+  }
+}
+
+const mycar = new Car("Ford");
+const mymodel = new Model("Ford", "Mustang");
+
+console.log(mycar.present());
+console.log(mymodel.show());
+             </pre>
+           </code>
+         </td>
+         <td class="output">
+           <p id="class"></p>
+         </td>
+       </tr>
+      </table>
+    </section>
+  </main>
+  <footer>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="./index4.html">Jump to Last Page</a>
+        </li>
+        <li>
+          <a href="./index2.html">Next Page</a>
+        </li>
+      </ul>
+
+    </nav>
+    <p style="text-align: center; font-size: small">&copy; 2023 TC. </p>
+  </footer>
+<script type="text/babel">
+
+  //|| ARROW FUNCTIONS ||
+  const hello = val => "Hello " + val;
+  document.getElementById('arrFunc').innerHTML = hello("world") + '<br>' ;
+
+  //|| CLASS ||
+  class Car {
+    constructor(name) {
+      this.brand = name;
+    }
+
+    present() {
+      return 'I have a ' + this.brand;
+    }
+  }
+
+  class Model extends Car {
+    constructor(name, mod) {
+      super(name);
+      this.model = mod;
+    }
+
+    show() {
+      return this.present() + ', it is a ' + this.model;
+    }
+  }
+
+  const mycar = new Car("Ford");
+  const mymodel = new Model("Ford", "Mustang");
+
+  document.getElementById('class').innerHTML = mycar.present() + '<br>';
+  document.getElementById('class').innerHTML += mymodel.show() + '<br>';
+
+    //||RENDER||
+  const container = document.getElementById('mydiv');
+  const root = ReactDOM.createRoot(container);
+  root.render(<Hello />);
+</script>
+
+</body>
+</html>

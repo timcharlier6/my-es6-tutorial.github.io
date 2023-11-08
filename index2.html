@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div>
+    <header>
+        <h1>ES6 BASICS</h1>
+    </header>
+
+    <main>
+        <h2>Array Methods</h2>
+
+        <p style="padding-left:20px;"><i>The .map() method allows you to run a function on each item in the array, returning a new array as the result.</i></p>
+        <section>
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td class="code">
+                        <code>
+              <pre>
+const ListItem = () => {
+
+    const myArray = ['Paul McCartney', 'John Lennon', 'Ringo Starr', 'George Harrison'];
+    const myList = myArray.map((item, index) => &lt;p key={index}&gt;{item}&lt;/p&gt;);
+
+    return (
+        &lt;div&gt;
+            {myList}
+        &lt;/div&gt;
+    )
+}
+              </pre>
+                        </code>
+                    </td>
+                    <td class="output">
+                        <div id="map"></div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="./index1.html">Previous Page</a>
+          </li>
+          <li>
+            <a href="./index3.html">Next Page</a>
+          </li>
+        </ul>
+
+      </nav>
+      <p style="text-align: center; font-size: small">&copy; 2023 TC. </p>
+    </footer>
+</div>
+
+
+<script type="text/babel">
+
+    //ARRAY METHODS
+
+    const ListItem = () => {
+
+        const myArray = ['Paul McCartney', 'John Lennon', 'Ringo Starr', 'George Harrison'];
+        const myList = myArray.map((item, index) => <p key={index}>{item}</p>);
+
+        return (
+            <div>
+                {myList}
+            </div>
+        )
+    }
+
+    //||RENDER||
+    const container = document.getElementById('map');
+    const root = ReactDOM.createRoot(container);
+    root.render(<ListItem />);
+</script>
+
+</body>
+</html>

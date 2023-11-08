@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div>
+    <header>
+        <h1>ES6 BASICS</h1>
+    </header>
+
+    <main>
+        <section>
+
+            <h2>Destructing Arrays</h2>
+
+            <p style="padding-left:20px;"><i>Destructuring is extracting only the desired value from an array or object.</i></p>
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td class="code">
+                        <code>
+              <pre>
+const vehicles = ['mustang', 'f-150', 'expedition'];
+const [car,, suv] = vehicles;
+const [,truck,] = vehicles;
+
+console.log(car);
+console.log(truck);
+console.log(suv);
+              </pre>
+                        </code>
+                    </td>
+                    <td class="output">
+                        <div id="react-dest-const" ></div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Destructuring return value</h2>
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td class="code">
+                        <code>
+              <pre>
+function calculate(a, b) {
+  const add = a + b;
+  const subtract = a - b;
+  const multiply = a * b;
+  const divide = a / b;
+
+  return [add, subtract, multiply, divide];
+}
+
+const [add, subtract, multiply, divide] = calculate(4, 2);
+
+console.log("Calculate 4 by 2");
+console.log("Sum: " + add );
+console.log("Difference: " + subtract );
+console.log("Product: " + multiply );
+console.log("Quotient " + add );
+              </pre>
+                        </code>
+                    </td>
+                    <td class="output">
+                        <div id="react-element">
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Destructuring Objects</h2>
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td class="code">
+                        <code>
+              <pre>
+const vehicleOne = {
+    brand: 'Ford',
+    model: 'Mustang',
+    type: "car",
+    year: 2021,
+    color: 'red',
+    registration: {
+       city: 'Houston',
+       state: 'Texas',
+       country: 'USA'
+    }
+}
+
+myVehicle(vehicleOne);
+
+function myVehicle({type, color, brand, model, registration: { state } }) {
+    const message1 = 'My ' + type + ' is a ' + color + ' ' + brand + ' ' + model + '.';
+    const message2 = 'My ' + model + ' is registered in ' + state + '.' ;
+    console.log(message1);
+    console.log(message2);
+}
+              </pre>
+                        </code>
+                    </td>
+                    <td class="output" style="padding-left:90px;">
+                        <div id="react-dest-obj"></div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="./index2.html">Previous Page</a>
+          </li>
+          <li>
+            <a href="./index4.html">Next Page</a>
+          </li>
+        </ul>
+
+      </nav>
+      <p style="text-align: center; font-size: small">&copy; 2023 TC. </p>
+    </footer>
+
+</div>
+
+<script type="text/babel">
+
+    const Operations = () => {
+        function calculate(a, b) {
+            const add = a + b;
+            const subtract = a - b;
+            const multiply = a * b;
+            const divide = a / b;
+
+            return [add, subtract, multiply, divide];
+        }
+
+        const [add, subtract, multiply, divide] = calculate(4, 2);
+
+        return(
+            <div>
+                <p>Calculate 4 by 2</p>
+                <p>Sum: {add}</p>
+                <p>Difference: {subtract}</p>
+                <p>Product: {multiply}</p>
+                <p>Quotient: {divide}</p>
+            </div>
+        )
+    }
+
+    //|| DESTRUCTURING ARRAYS
+    const vehicles = ['mustang', 'f-150', 'expedition'];
+
+    const [car,, suv] = vehicles;
+    const [,truck,] = vehicles;
+    document.getElementById('react-dest-const').innerHTML = car + "<br>" + truck + "<br>" + suv;
+
+    // DESTRUCTURING OBJECTS
+    const vehicleOne = {
+        brand: 'Ford',
+        model: 'Mustang',
+        type: "car",
+        year: 2021,
+        color: 'red',
+        registration: {
+            city: 'Houston',
+            state: 'Texas',
+            country: 'USA'
+        }
+    }
+
+    myVehicle(vehicleOne);
+
+    function myVehicle({type, color, brand, model, registration: { state } }) {
+        const message1 = 'My ' + type + ' is a ' + color + ' ' + brand + ' ' + model + '.';
+        const message2 = 'My ' + model + ' is registered in ' + state + '.' ;
+        document.getElementById('react-dest-obj').innerHTML = message1 + '<br>' + message2 + '<br>';
+    }
+    //||RENDER||
+    const container = document.getElementById('react-element');
+    const root = ReactDOM.createRoot(container);
+    root.render(<Operations />);
+</script>
+
+</body>
+</html>
